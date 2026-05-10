@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Population Census Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <h2>📊 Census</h2>
+            <ul>
+                <li>🏠 Dashboard</li>
+                <li>👥 Demographics</li>
+                <li>📄 Reports</li>
+                <li>💡 Insights</li>
+                <li>⚙️ Settings</li>
+            </ul>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main">
+
+            <!-- HEADER -->
+            <header class="header">
+                <input type="text" id="search" placeholder="Search city/state...">
+                <div class="filters">
+                    <select id="year"></select>
+                    <select id="region"></select>
+                    <select id="gender">
+                        <option value="all">All</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </header>
+
+            <!-- SUMMARY CARDS -->
+            <section class="cards">
+                <div class="card">Total Population <h3 id="totalPop"></h3>
+                </div>
+                <div class="card">Male <h3 id="malePop"></h3>
+                </div>
+                <div class="card">Female <h3 id="femalePop"></h3>
+                </div>
+                <div class="card">Growth Rate <h3 id="growth"></h3>
+                </div>
+            </section>
+
+            <!-- CHARTS -->
+            <section class="charts">
+                <div class="chart-card">
+                    <h3>Population Trend</h3>
+                    <canvas id="lineChart"></canvas>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Age Distribution</h3>
+                    <canvas id="barChart"></canvas>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Gender Ratio</h3>
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </section>
+
+            <!-- MAP + EXTRA -->
+            <section class="bottom">
+                <div class="map-card">
+                    <h3>Population Map</h3>
+                    <div id="map"></div>
+                </div>
+
+                <div class="stats-card">
+                    <h3>Urban vs Rural</h3>
+                    <canvas id="urbanChart"></canvas>
+
+                    <h3>Literacy & Employment</h3>
+                    <p>Literacy Rate: <span id="literacy"></span>%</p>
+                    <p>Employment: <span id="employment"></span>%</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
